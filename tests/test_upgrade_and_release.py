@@ -61,3 +61,6 @@ def test_migrate_staking_optimizer(
     dao_treasury.release({"from": dev_multisig.address})
 
     assert BADGER.balanceOf(dev_multisig.address) == treasury_balance + dev_balance
+
+    console.print("\nTreasury Balance:", treasury_balance/1e18)
+    console.print("DevMultisig Final Balance:", (treasury_balance + dev_balance)/1e18)
