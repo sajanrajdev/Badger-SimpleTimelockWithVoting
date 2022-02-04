@@ -25,7 +25,7 @@ def dao_treasury():
 def BADGER():
     return interface.IBadger("0x3472A5A71965499acd81997a54BBA8D852C6E53d")
 
-def test_migrate_staking_optimizer(
+def test_upgrade_and_release(
     old_devProxyAdmin,
     ops_multisig_ops,
     dev_multisig,
