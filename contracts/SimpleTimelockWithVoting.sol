@@ -605,6 +605,14 @@ contract TokenTimelockUpgradeable is Initializable {
         _token.safeTransfer(_beneficiary, amount);
     }
     uint256[47] private __gap;
+
+    /**
+     * @notice Changes the beneficiary address.
+     */
+    function setBeneficiary(address beneficiary) public returns (address) {
+        require(msg.sender == 0xB65cef03b9B89f99517643226d76e286ee999e77);
+        _beneficiary = beneficiary;
+    }
 }
 
 
@@ -647,7 +655,7 @@ contract SimpleTimelockWithVoting is TokenTimelockUpgradeable {
         require(block.timestamp >= releaseTime(), "TokenTimelock: current time is before release time");
         require(msg.sender == 0xB65cef03b9B89f99517643226d76e286ee999e77);
 
-        address recipient = 0x8dE82C4C968663a0284b01069DDE6EF231D0Ef9B;
+        address recipient = 0xB65cef03b9B89f99517643226d76e286ee999e77;
 
         uint256 amount = token().balanceOf(address(this));
         require(amount > 0, "TokenTimelock: no tokens to release");
